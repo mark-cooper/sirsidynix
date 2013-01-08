@@ -319,12 +319,17 @@ module Sirsidynix
       @last, @first = lookup_my_account_info.css('name').text.split(',').map(&:strip)
     end
 
-    def place_hold(args)
-      # type = bib, isbn
+    def place_hold_by_bib(bib)
+      create_hold({ pickupLocation: location, titleKey: bib })
     end
 
-    def cancel_hold(args)
-      # type = bib, isbn 
+    def cancel_hold_by_bib(bib)
+      r = lookup_my_holds_info
+      h = r.find{ |hold| hold.css('titleKey').text == bib }
+      if h
+        hkey = h.css('holdKey').text
+        cancel_hold({ holdKey: hkey })
+      end
     end
 
     def method_missing(name, *args, &block)
