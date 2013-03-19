@@ -8,17 +8,17 @@ In progress ...
 
 ## Installation
 
-Add this line to your application's Gemfile:
+Download using git:
 
-    gem 'sirsidynix'
+    git clone git@github.com:mark-cooper/overdrive_metadata.git
 
-And then execute:
+Enter the directory and build the gem:
 
-    $ bundle
+    $ gem build sirsidynix.gemspec
 
-Or install it yourself as:
+Install the gem that was created:
 
-    $ gem install sirsidynix
+    $ gem install sirsidynix-X.X.X.gem
 
 ## Usage
 
